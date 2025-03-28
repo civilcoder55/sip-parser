@@ -33,8 +33,8 @@ export function stringifyUri(uri: SipUri, startLine: boolean = false): string {
     if (uri.parameters) {
         sipString += stringifyNameValuePairs(uri.parameters);
 
-        if(!startLine){
-           sipString = `<${sipString}>`;
+        if (!startLine) {
+            sipString = `<${sipString}>`;
         }
     }
     return sipString;
