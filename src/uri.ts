@@ -19,7 +19,7 @@ export function parseUri(uriString: string): SipUri {
     };
 }
 
-export function stringifyUri(uri: SipUri): string {
+export function stringifyUri(uri: SipUri, startLine: boolean = false): string {
     let sipString = `sip${uri.secure === true ? 's' : ''}:`;
 
     if (uri.user)
@@ -32,7 +32,10 @@ export function stringifyUri(uri: SipUri): string {
 
     if (uri.parameters) {
         sipString += stringifyNameValuePairs(uri.parameters);
-        sipString = `<${sipString}>`;
+
+        if(!startLine){
+           sipString = `<${sipString}>`;
+        }
     }
     return sipString;
 }

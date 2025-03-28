@@ -21,7 +21,7 @@ function makeStartLine(message: SIPMessage) {
 }
 
 function makeRequestStartLine(message: SIPRequest): string {
-    return `${message.method} ${stringifyUri(message.requestUri)} SIP/${message.version}`;
+    return `${message.method} ${stringifyUri(message.requestUri, true)} SIP/${message.version}`;
 }
 
 function makeResponseStartLine(message: SIPResponse): string {
